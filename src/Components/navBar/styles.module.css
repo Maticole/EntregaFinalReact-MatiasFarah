@@ -1,0 +1,8 @@
+.navbar{
+    background-color: rgb(42, 95, 165);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 20px;
+    color: aliceblue;
+}
