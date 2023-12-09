@@ -1,6 +1,19 @@
-.card{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    
+.card {
+  display: flex;
+  flex-wrap: wrap;
+
+  width: 100px;
+  padding: 10px;
+  border: 1px solid black;
+  margin: 10px 15px;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
