@@ -39,11 +39,15 @@ const ItemListContainer = ({ greeting }) => {
         const productRef = collection(db, "products");
         getDocs(productRef)
             .then((snapshot) => {
-                setProducts(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+                let productos = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                if (id) {
+                    productos = productos.filter(producto => producto.categoryid === id);
+                }
+                setProducts(productos);
             })
             .catch(error => console.error(error))
             .finally(() => setLoading(false));
-    }, []);
+    }, [id]);
 
     if (loading) return <Spin />;
 

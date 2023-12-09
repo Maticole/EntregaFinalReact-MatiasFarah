@@ -11,8 +11,8 @@ const NavBar = () => {
     const [categoriasRef, setCategoriasRef] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    
-    
+
+
     useEffect(() => {
         const productRef = collection(db, "products")
         getDocs(productRef)
@@ -30,11 +30,11 @@ const NavBar = () => {
     return (
         <div className={styles.navbar}>
             <p>(Entre paréntesis)</p>
-            {categoriasRef.map((cat, index) => (
-        <Link to={`/category/${index + 1}`} key={index}>
-          {cat}
-        </Link>
-      ))}
+            {categoriasRef.map((cat) => (
+                <Link to={`/category/${cat}`} key={cat}>
+                    {cat}
+                </Link>
+            ))}
             <CartWidget />
         </div>
     );
