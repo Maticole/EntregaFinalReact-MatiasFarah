@@ -30,21 +30,20 @@ const CartContext = ({ defaultValue = [], children }) => {
             }
         },
 
-        removeItem(itemId) {
-            setCart(cart.filter(cartItem => cartItem.id !== itemId))
-        },
 
         clearCart() {
             setCart(defaultValue)
         },
-        changeQty(id, qty) {
-            setCart(cart.map(cartItem => {
+        removeItem(id) {
+            const productos = cart.map(cartItem => {
                 if (cartItem.id === id) {
-                    return { ...cartItem, qty: qty }
+
+                    return { ...cartItem, qty: cartItem.qty - 1 }
                 } else {
                     return cartItem
                 }
-            }))
+            })
+            setCart(productos.filter(cartItem => cartItem.qty !== 0))
         }
 
     }

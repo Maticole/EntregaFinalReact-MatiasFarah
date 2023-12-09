@@ -10,6 +10,7 @@ import { Spin } from 'antd';
 const NavBar = () => {
     const [categoriasRef, setCategoriasRef] = useState([]);
     const [loading, setLoading] = useState(true);
+    
 
 
 
@@ -29,7 +30,10 @@ const NavBar = () => {
 
     return (
         <div className={styles.navbar}>
-            <p>(Entre paréntesis)</p>
+            <div>
+            <Link to="/">(Entre paréntesis)</Link>
+            </div>
+            
             {categoriasRef.map((cat) => (
                 <Link to={`/category/${cat}`} key={cat}>
                     {cat}
